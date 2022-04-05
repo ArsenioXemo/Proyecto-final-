@@ -27,15 +27,16 @@ los cambios deben ser subidos a sus ramas y estas ramas deben generar un pullreq
 Crear un usuario para poder entrar a las orgs de cada uno y ponerlo en la siguiente lista.
 
 ---------------------------------------------------------------------------------------
-USuario ---- contraseña
+USuario ---- contraseña.
 Ejemplo: correo@email.com ---- Hola mundo
-1.-
-2.-
-3.-
-4.-
-5.-
-6.-
-7.-
-8.-
-9.-
-10.-
+---------------------------------------------------------------------------------------
+1.
+2.
+3.
+4.
+5.
+6.
+7.
+8.
+9.
+10.
