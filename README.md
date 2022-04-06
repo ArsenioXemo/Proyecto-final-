@@ -1,7 +1,7 @@
 # Proyecto-final-
 Rep para el proyecto final.
 Dentro de la Org que generaron, Construir un nuevo compoente aura, el compoenete debe obtener acceso al ID de la op
-con el Id obtener los valores AccountId, Amount. El componente debe estar ubicado en el objeto opportunidad.
+con el Id obtener los valores  Amount. El componente debe estar ubicado en el objeto opportunidad.
 
 Dentro del componente solicitar un valor de tipo porcentaje que se usara para poder realizar el calculo del descuento.
 mismo que se tiene que guardar en el campo de Oportunidad del mismo nombre. El componente tiene que contar con dos botones 
