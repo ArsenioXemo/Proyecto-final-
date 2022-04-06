@@ -5,7 +5,7 @@ con el Id obtener los valores  Amount. El componente debe estar ubicado en el ob
 
 Dentro del componente solicitar un valor de tipo porcentaje que se usara para poder realizar el calculo del descuento.
 mismo que se tiene que guardar en el campo de Oportunidad del mismo nombre. El componente tiene que contar con un boton
-Guardar que realizara el calculo en una clase apex de nombre "calcularDesc" y actualizara el campo Amount y el campo descuento
+Guardar que realizara el calculo en una clase apex de nombre "calcularDesc" y actualizara el campo Subtotal y el campo descuento. 
 
 una vez Guardado el campo en oportunidad se tiene que actualizar la cuenta Guardando en ella el campo porcentaje en el valor del mismo nombre
 esto mediante un flujo que detone al guardar la oportunidad.
@@ -16,7 +16,7 @@ Nombre: Descuento__c
 Etiqueta_ Descuento
 Descripcion Descuento: 
 El campo descuento tiene que estar disponible en los objetos Account y en el objeto Oportunidad.
-
+El campo subTotal tiene que ser de tipo divisa. 10 enteros 2 decimales. Etiqueta Subtotal apiname: subtotal__c
 
 Los nombres tanto de los compoentes como de las clases tienen que llevar un valor de nombre es decir:
 
