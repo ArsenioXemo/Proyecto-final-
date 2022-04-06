@@ -4,7 +4,7 @@ Dentro de la Org que generaron, Construir un nuevo compoente aura, el compoenete
 con el Id obtener los valores  Amount. El componente debe estar ubicado en el objeto opportunidad.
 
 Dentro del componente solicitar un valor de tipo porcentaje que se usara para poder realizar el calculo del descuento.
-mismo que se tiene que guardar en el campo de Oportunidad del mismo nombre. El componente tiene que contar con dos botones 
+mismo que se tiene que guardar en el campo de Oportunidad del mismo nombre. El componente tiene que contar con un boton
 Guardar que realizara el calculo en una clase apex de nombre "calcularDesc" y actualizara el campo Amount y el campo descuento
 
 una vez Guardado el campo en oportunidad se tiene que actualizar la cuenta Guardando en ella el campo porcentaje en el valor del mismo nombre
