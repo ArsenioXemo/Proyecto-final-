@@ -35,7 +35,7 @@ esto mediante un flujo que detone al guardar la oportunidad.
 Usuario ---- contraseña
   Ejemplo: correo@email.com ---- Hola mundo
 ---------------------------------------------------------------------------------------
-1.
+1. nvasher@racoon.com	 ---- racoon123
 2.
 3.
 4.
