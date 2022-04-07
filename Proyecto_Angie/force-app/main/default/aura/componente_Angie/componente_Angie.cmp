@@ -1,0 +1,32 @@
+<!--
+  @description       : 
+  @author            : angelica.solis.avila.contractor@bbva.com
+  @group             : 
+  @last modified on  : 04-07-2022
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+
+    <aura:attribute name ="descuento" type ="Double" />
+    <aura:attribute name ="OpportunityObjec" type ="Object" />
+
+   
+
+        
+    <div class="slds-box">
+        <lightning:card iconName="standard:account" title="{!v.OpportunityObject.Name}" >
+        <p>Monto: <lightning:formattedNumber value="{!v.OpportunityObject.Amount}"/></p>  
+        <lightning:input type="number" name="porcentaje" formatter="percent-fixed" value="{!v.descuento}" label="Ingresa el porcentaje de descuento" />
+                
+        <div>
+            <lightning:buttonGroup>
+                <lightning:button label="Save" onclick="{!c.save}" disabled="{!v.truthy}"/>
+            </lightning:buttonGroup>
+        </div>
+        
+        </lightning:card>
+    </div>
+
+    
+
+</aura:component>
