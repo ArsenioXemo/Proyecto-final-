@@ -1,0 +1,69 @@
+<!-- 
+  @description       : 
+  @author            : Arsenio.perez.lopez.contractor@bbva.com
+  @group             : 
+  @last modified on  : 04-05-2022
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" >
+
+
+<aura:attribute name ="OpportunityObject" type ="Object" />
+<aura:attribute name ="RecordError" type="string" />
+<aura:attribute name ="recordId" type="Id" />
+<aura:attribute name ="truthy" type="Boolean" />
+<aura:attribute name="accountRecord" type="Object"/>
+<aura:attribute name="recordLoadError" type="String"/>
+<aura:attribute name="saveState" type="String" default="UNSAVED"/>
+<aura:handler name="onSaveSuccess" event="force:recordSaveSuccess" action="{!c.handleSaveSuccess}"/>
+
+<force:recordData aura:id="recordLoader"  
+	recordId ="{!v.recordId}" 
+	fields ="Name,StageName,AccountId" 
+	targetFields = "{!v.OpportunityObject}" 
+	targetError ="{!v.RecordError}" 
+	mode="EDIT"
+	/>
+
+
+<force:recordData aura:id="recordLoader2"
+    recordId="{!v.OpportunityObject.AccountId}"
+    fields="Name,Description,Phone,Industry"
+    targetFields="{!v.accountRecord}"
+    targetError="{!v.recordLoadError}"
+	mode="SAVE"
+    />
+
+<div class="Record Details"> 
+	<lightning:card iconName="standard:account" title="{!v.OpportunityObject.Name}" >
+		<div class="slds-p-horizontal--small">
+			<p class="slds-truncate">
+				<lightning:formattedText title="StageName" value="{!v.OpportunityObject.StageName}" /></p>
+		</div>
+	</lightning:card>
+</div>
+
+
+<div>
+	<lightning:buttonGroup>
+		<lightning:button label="Save" onclick="{!c.save}"/>
+		<lightning:button label="Edit" onclick="{!c.ChangBool}"/><!-- Crear un boton que llame a la nueva funcion y agregar el faltante para que se pueda invocar (pista noe pregunto por esto la clase pasada)-->
+		<lightning:button label="New function" onclick="{!c.Llamafuncion}"/>
+	</lightning:buttonGroup>
+
+	<aura:if isTrue="{!v.truthy}">
+		<div >
+			<force:recordEdit aura:id="edit" recordId="{!v.recordId}"/>
+		</div>
+    <aura:set attribute="else">
+		<div>
+			<force:recordView recordId="{!v.recordId}"/>
+		</div>
+    </aura:set>
+  </aura:if> 
+  <br/><br/><br/><br/>
+
+</div>
+
+	<div>Hola Mundo Aura </div> 
+</aura:component>

@@ -1,0 +1,31 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 04-08-2022
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global">
+
+<aura:attribute name ="OpportunityObject" type ="Object" />
+<aura:attribute name ="recordId" type="Id" />
+<aura:attribute name ="Descuento" type="Double" />
+
+<force:recordData aura:id="recordLoader"  
+	recordId ="{!v.recordId}" 
+	fields ="Amount" 
+	targetFields = "{!v.OpportunityObject}"
+	/>
+
+<div>
+	Amount:<p><lightning:formattedNumber value="{!v.OpportunityObject.Amount}"/></p>
+            <div >
+                <lightning:input label="Porcentaje de descuento" type="number" name="Descuento__c" formatter="percent-fixed" step="0.1" required="true" value="{!v.Descuento}"/>
+            </div>
+		<lightning:button label="Save" onclick="{!c.save}"/>
+</div>
+
+<div>Proyecto final ::. </div> 
+
+</aura:component>
