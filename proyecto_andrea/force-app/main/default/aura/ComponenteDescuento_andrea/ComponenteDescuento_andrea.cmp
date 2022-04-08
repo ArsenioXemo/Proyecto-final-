@@ -1,0 +1,23 @@
+<!--
+  @description       : 
+  @author            : aturcio
+  @group             : 
+  @last modified on  : 04-07-2022
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" >
+    <aura:attribute name ="OpportunityObject" type ="Object" />
+    <aura:attribute name ="recordId" type="Id" />
+
+    <force:recordData aura:id="recordLoader"  recordId ="{!v.recordId}" fields ="Name,Amount,AccountId" targetFields = "{!v.OpportunityObject}"  />
+    
+    <div> 
+	<lightning:card iconName="standard:account" title="{!v.OpportunityObject.Name}" />
+    <h2>Importe actual</h2>
+    <lightning:card  title="{!v.OpportunityObject.Amount}" />
+    <lightning:input type="number" name="input1" label="Introduzca el descuento a calcular" formatter="percent-fixed" step="" />
+    <lightning:button label="Guardar" title="Guardar" onclick="{! c.save}"/>
+    </div>
+
+   
+</aura:component>	
