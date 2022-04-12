@@ -2,22 +2,38 @@
   @description       : 
   @author            : aturcio
   @group             : 
-  @last modified on  : 04-07-2022
+  @last modified on  : 04-11-2022
   @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
 -->
-<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" >
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" controller = "calcularDesc_And" >
     <aura:attribute name ="OpportunityObject" type ="Object" />
     <aura:attribute name ="recordId" type="Id" />
+    <aura:attribute name ="total" type="Boolean" />
 
-    <force:recordData aura:id="recordLoader"  recordId ="{!v.recordId}" fields ="Name,Amount,AccountId" targetFields = "{!v.OpportunityObject}"  />
+    <force:recordData aura:id="recordLoader"  recordId ="{!v.recordId}" fields ="Name,Amount,AccountId,subtotal__c,Descuento__c" targetFields = "{!v.OpportunityObject}"  />
     
     <div> 
 	<lightning:card iconName="standard:account" title="{!v.OpportunityObject.Name}" />
     <h2>Importe actual</h2>
-    <lightning:card  title="{!v.OpportunityObject.Amount}" />
-    <lightning:input type="number" name="input1" label="Introduzca el descuento a calcular" formatter="percent-fixed" step="" />
-    <lightning:button label="Guardar" title="Guardar" onclick="{! c.save}"/>
+    <lightning:formattedNumber style="currency" value="{!v.OpportunityObject.Amount}"/>   
     </div>
 
-   
-</aura:component>	
+ 	<div> 
+    <lightning:input type="number" label="Introduzca el descuento a calcular" id="input1"  formatter="percent-fixed" value="{!v.OpportunityObject.Descuento}"  />
+    <lightning:button label="Guardar" title="Guardar" onclick="{! c.save}"/>
+    </div>
+    
+    
+    <div class= "slds-align_absolute-center">
+    <aura:if isTrue="{!v.total}">
+      <lightning:card  title="Subtotal">
+          <lightning:formattedNumber style="currency" class="slds-text-heading_medium" value="{!v.OpportunityObject.subtotal__c}"/>
+           </lightning:card>
+        
+    </aura:if>
+  
+    </div>
+    
+     
+ 
+</aura:component>
