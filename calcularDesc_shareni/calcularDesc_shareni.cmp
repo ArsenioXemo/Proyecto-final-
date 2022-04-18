@@ -2,17 +2,16 @@
   @description       : 
   @author            : ChangeMeIn@UserSettingsUnder.SFDoc
   @group             : 
-  @last modified on  : 04-07-2022
+  @last modified on  : 04-18-2022
   @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
 -->
-<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" >
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" controller="calcularDesc">
 
     <aura:attribute name ="recordId" type="Id"/>
     <aura:attribute name ="OpportunityObject" type ="Object" />
     <aura:attribute name ="RecordError" type="string" />
     <aura:attribute name ="calculaDescuento" type="string" />
     
-
     <force:recordData aura:id ="recordLoader"  
         recordId ="{!v.recordId}" 
         fields ="Amount, Descuento__c, Subtotal__c, AccountId" 
@@ -28,5 +27,4 @@
     <div>
         <force:recordEdit aura:id="edit" recordId="{!v.recordId}"/>
     </div>
-</aura:component>	
-
+</aura:component>

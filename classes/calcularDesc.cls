@@ -2,7 +2,7 @@
  * @description       : 
  * @author            : ChangeMeIn@UserSettingsUnder.SFDoc
  * @group             : 
- * @last modified on  : 04-07-2022
+ * @last modified on  : 04-18-2022
  * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
 **/
 public with sharing class calcularDesc {
@@ -10,16 +10,23 @@ public with sharing class calcularDesc {
         
     }
     @AuraEnabled
-    public static void calcula (Id Idpp) {
+    public static void calcula (Id Idpp, String Idcuenta) {
+        System.debug('idpp='+Idpp);
         double porcentaje;
         
-        Opportunity importe = [Select Amount from Opportunity where ID=: Idpp];
-        Opportunity descuento = [Select Descuento__c from Opportunity where ID=: Idpp];
-        Opportunity subtotal = [Select Subtotal__c from Opportunity where ID=: Idpp];
+        Double importe = [Select Id, Amount from Opportunity where ID=: Idpp].Amount;
+        Opportunity descuento = [Select Id, Descuento__c from Opportunity where ID=: Idpp];
+        Opportunity subtotal = [Select Id, Subtotal__c from Opportunity where ID=: Idpp];
+        //Account descCuenta = [Select Id, Descuento__c from Account where ID=: '0018c000029DR0pAAG'];
+        Account descCuenta = [Select Id, Descuento__c from Account where ID=: Idcuenta];
 
-        porcentaje = (descuento/100)* importe;
+        porcentaje = (descuento.Descuento__c/100)* importe;
 
+        descCuenta.Descuento__c = descuento.Descuento__c;
         subtotal.Subtotal__c = porcentaje;
+
+        update subtotal;
+        update descCuenta;
     }
 
 }
