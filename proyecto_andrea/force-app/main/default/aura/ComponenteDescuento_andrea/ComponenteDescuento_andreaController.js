@@ -1,6 +1,9 @@
 ({
-    save : function(component, event, helper) {
+    doInit : function(component, event, helper) {
+        helper.doInit(component, event);
+    },
+
+    save: function(component, event, helper){
         helper.save(component, event);
-        component.set("v.total",true);
     }
 })

@@ -6,8 +6,10 @@
   @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
 -->
 <aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" controller = "calcularDesc_And" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:attribute name ="OpportunityObject" type ="Object" />
     <aura:attribute name ="recordId" type="Id" />
+    <aura:attribute name ="descuento" type="Double" />
     <aura:attribute name ="total" type="Boolean" />
 
     <force:recordData aura:id="recordLoader"  recordId ="{!v.recordId}" fields ="Name,Amount,AccountId,subtotal__c,Descuento__c" targetFields = "{!v.OpportunityObject}"  />
@@ -19,7 +21,7 @@
     </div>
 
  	<div> 
-    <lightning:input type="number" label="Introduzca el descuento a calcular" id="input1"  formatter="percent-fixed" value="{!v.OpportunityObject.Descuento}"  />
+    <lightning:input type="number" label="Introduzca el descuento a calcular" id="input1"  formatter="percent-fixed" value="{!v.descuento}"  />
     <lightning:button label="Guardar" title="Guardar" onclick="{! c.save}"/>
     </div>
     
